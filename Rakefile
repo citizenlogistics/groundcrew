@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "groundcrew"
     gem.summary = %Q{a simple library for running things on http://Groundcrew.us}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = %Q{a simple library for running things on http://Groundcrew.us}
     gem.email = "joe@citizenlogistics.com"
     gem.homepage = "http://github.com/citizenlogistics/groundcrew"
     gem.authors = ["Joe Edelman"]
