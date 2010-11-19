@@ -9,9 +9,11 @@ begin
     gem.description = %Q{TODO: longer description of your gem}
     gem.email = "joe@citizenlogistics.com"
     gem.homepage = "http://github.com/citizenlogistics/groundcrew"
-    gem.authors = ["Citizen Logistics, Inc."]
+    gem.authors = ["Joe Edelman"]
     gem.add_development_dependency "minitest", ">= 0"
     gem.add_development_dependency "yard", ">= 0"
+    gem.add_dependency('rest-client')
+    gem.add_dependency('yajl-ruby')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

@@ -1,17 +1,42 @@
 = groundcrew
 
-Description goes here.
+A ruby wrapper for the {Groundcrew API}[http://gcapi.com], with thanks to {rest-client}[http://github.com/adamwiggins/rest-client] and yajl[http://github.com/brianmario/yajl-ruby].
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+== Usage
+
+    # Invite twitter followers that were recently seen in the bronx to a party?
+
+    Groundcrew.api(account_id, api_key) do
+
+      exec '43.222,-104.300',
+        "\"Please come to a party downtown!\"\n"+
+        "tell participants: bring a small dragon and a game to play with it"
+
+    end
+
+
+    # Who likes tennis that's currently walking through the bronx?
+
+    add_person :name => 'jimmy', :phone => '5552508007', :loc => '01060'
+
+    stream_people :near => '43.222,-104.300' do |person|
+      next unless person.bio =~ /tennis/
+      puts "#{person.name} is in the area and ready"
+    end
+
+
+    # Gather people in teams of six who want to hold signs
+
+    exec 'London, UK', <<-CEML
+        "Sign holding in groups"
+        takes 20m
+        gather 4-6 signholders with tag sign_holding
+        tell signholders:
+          greet the other signholders
+          make signs and hold them
+    CEML
+
 
 == Copyright
 
-Copyright (c) 2010 Citizen Logistics, Inc.. See LICENSE for details.
+Copyright (c) 2010 Citizen Logistics, Inc. See LICENSE for details.
